@@ -2,11 +2,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    entry: path.join(__dirname, "src", "index.js"),
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: __dirname,
+        filename: "./dist/bundle.js",
     },
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [
             {
@@ -21,10 +22,19 @@ module.exports = {
             },
         ]
     },
+    "resolve": {
+        "alias": {
+            "react": "preact/compat",
+            "react-dom/test-utils": "preact/test-utils",
+            "react-dom": "preact/compat",     // Must be below test-utils
+            "react/jsx-runtime": "preact/jsx-runtime"
+        },
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src", "index.html"),
         }),
+
     ],
 }
 
