@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 
 ReactDOM.render(
-    <h1>Hello World</h1>,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
     document.getElementById('root')
 );

@@ -7,11 +7,14 @@ module.exports = {
         path: __dirname,
         filename: "./dist/bundle.js",
     },
-    mode: 'production',
+    devServer: {
+        port: 3010,
+    },
+    // mode: 'production',
     module: {
         rules: [
             {
-                test: /\.?js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -19,6 +22,10 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [{ loader: "style-loader" }, { loader: "css-loader" }],
             },
         ]
     },
