@@ -3,7 +3,7 @@ import React from 'react'
 
 const TextField = ({ label, ...props }) => {
     const [field, meta] = useField(props);
-
+    // console.log("field:", field)
     return (
         <div className=" mb-2">
             <label htmlFor={field.name}>{label}</label><span style={{ color: "red" }}>*</span>
