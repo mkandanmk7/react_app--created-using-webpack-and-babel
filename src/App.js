@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import SignUp from './component/SignUp'
 import Users from './component/Users'
+import { Context } from './context/Context';
+import ThemeContext from './context/ThemeContext';
 
 const App = () => {
 
 
-
+  const details = useContext(Context);
+  console.log(details)
   return (
     <div className="container mt-3">
       <div className="row">
@@ -13,6 +16,8 @@ const App = () => {
           <SignUp />
         </div>
         <Users />
+        <br />
+        <ThemeContext />
       </div>
     </div>
   )

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Formik, Form } from 'formik';
 import TextField from './TextField';
 import * as Yup from 'yup';
+import { Context } from '../context/Context';
 
 const SignUp = () => {
+    const detail = useContext(Context);
+    console.log(detail);
     const validate = Yup.object({
         firstName: Yup.string()
             .max(15, 'Must be 15 characters or less')
